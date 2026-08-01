@@ -418,22 +418,35 @@ Rohtak Hospital is committed to providing quality healthcare with experienced do
 
 <h2 class="fw-bold mb-4">Book Your Appointment</h2>
 
-<form id="appointmentForm">
+<!-- Alert Message -->
+<div id="successMessage" class="alert alert-success alert-dismissible fade" role="alert" style="display: none;">
+<i class="fas fa-check-circle me-2"></i>
+<strong>Success!</strong> Your appointment request has been sent. We'll contact you soon!
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+
+<div id="errorMessage" class="alert alert-danger alert-dismissible fade" role="alert" style="display: none;">
+<i class="fas fa-exclamation-circle me-2"></i>
+<strong>Error!</strong> <span id="errorText"></span>
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+
+<form id="appointmentForm" method="POST" action="https://formsubmit.co/demonslayer20255@gmail.com">
 
 <div class="mb-3">
-<input type="text" id="name" class="form-control" placeholder="Full Name" required>
+<input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
 </div>
 
 <div class="mb-3">
-<input type="email" id="email" class="form-control" placeholder="Email Address" required>
+<input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
 </div>
 
 <div class="mb-3">
-<input type="tel" id="phone" class="form-control" placeholder="Mobile Number (10 digits)" required>
+<input type="tel" id="phone" name="phone" class="form-control" placeholder="Mobile Number (10 digits)" required>
 </div>
 
 <div class="mb-3">
-<select id="department" class="form-select" required>
+<select id="department" name="department" class="form-select" required>
 <option value="">Select Department</option>
 <option>General Medicine</option>
 <option>General Surgery</option>
@@ -445,12 +458,16 @@ Rohtak Hospital is committed to providing quality healthcare with experienced do
 </div>
 
 <div class="mb-3">
-<input type="date" id="appointmentDate" class="form-control" required>
+<input type="date" id="appointmentDate" name="appointment_date" class="form-control" required>
 </div>
 
 <div class="mb-3">
-<textarea id="message" class="form-control" rows="4" placeholder="Message (Optional)"></textarea>
+<textarea id="message" name="message" class="form-control" rows="4" placeholder="Message (Optional)"></textarea>
 </div>
+
+<!-- Hidden fields for FormSubmit -->
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://rohtakhospital.com/thank-you.html">
 
 <button type="submit" class="btn btn-primary w-100 fw-bold py-2">
 <i class="fas fa-calendar-check me-2"></i>Book Appointment
