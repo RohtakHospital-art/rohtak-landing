@@ -1,38 +1,433 @@
-/* style.css - basic styles for Rohtak Hospital landing */
-
-:root{
-  --primary:#0d6efd;
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif;color:#222;margin:0}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
 
-/* Top bar */
-.top-bar{font-size:0.9rem}
+/* Top Bar */
+.top-bar {
+  background: #f8f9fa;
+  padding: 10px 0;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 14px;
+}
 
-/* Hero */
-.hero{padding:60px 0;background:linear-gradient(90deg,rgba(13,110,253,0.04),rgba(13,110,253,0.02))}
+.top-bar div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-/* Service card */
-.service-card{background:#fff;padding:24px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.06);transition:transform .3s;text-align:center}
-.service-card:hover{transform:translateY(-6px)}
-.service-card i{font-size:36px;color:var(--primary);margin-bottom:12px}
+.top-bar a {
+  color: #0d6efd;
+  text-decoration: none;
+  transition: 0.3s;
+}
 
-/* Review card */
-.review-card{background:#fff;padding:25px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,.08);text-align:center}
+.top-bar a:hover {
+  color: #0b5ed7;
+}
 
-/* Counter */
-.counter-section{background:var(--primary);color:#fff}
-.counter{font-size:48px;font-weight:700}
+/* Navbar */
+.navbar {
+  padding: 15px 0;
+}
 
-/* WhatsApp floating button */
-.whatsapp-float{position:fixed;bottom:25px;right:25px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:9999}
+.navbar-brand {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
 
-/* Back to top button */
-#topBtn{position:fixed;left:25px;bottom:25px;width:55px;height:55px;border:none;border-radius:50%;background:var(--primary);color:#fff;display:none;cursor:pointer;align-items:center;justify-content:center}
-#topBtn i{font-size:18px}
+.nav-link {
+  font-weight: 500;
+  margin-left: 20px;
+  transition: 0.3s;
+  color: #333 !important;
+}
 
-/* Utilities */
-.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+.nav-link:hover {
+  color: #0d6efd !important;
+}
 
-/* Responsive tweaks */
-@media (max-width:576px){.hero{padding:40px 0}.service-card i{font-size:30px}}
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 55px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* About Section */
+#about {
+  background: #fff;
+}
+
+#about h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #0d6efd;
+}
+
+#about p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+#about ul {
+  list-style: none;
+  padding: 0;
+}
+
+#about ul li {
+  padding: 12px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #555;
+}
+
+#about ul li:before {
+  content: "✓ ";
+  color: #0d6efd;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Services Section */
+#services {
+  background: #f8f9fa;
+  padding: 80px 0;
+}
+
+#services h2 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #0d6efd;
+}
+
+.service-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.4s;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-card i {
+  font-size: 45px;
+  color: #0d6efd;
+  margin-bottom: 20px;
+}
+
+.service-card h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Counter Section */
+.counter-section {
+  background: #0d6efd;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.counter {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.counter-section p {
+  font-size: 16px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Review Cards */
+.review-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.review-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.review-card p {
+  font-size: 15px;
+  color: #666;
+  margin: 15px 0;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.review-card h5 {
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+/* FAQ Section */
+#faq {
+  margin-top: 40px;
+}
+
+.accordion-button {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  font-weight: 500;
+  color: #333;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #0d6efd;
+  color: #fff;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.accordion-body {
+  background: #fff;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Contact Section */
+#contact {
+  background: #f8f9fa;
+  padding: 80px 0;
+}
+
+#contact h2 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #0d6efd;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-control {
+  padding: 12px 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background: #1fad51;
+}
+
+/* Back to Top Button */
+#topBtn {
+  position: fixed;
+  left: 25px;
+  bottom: 25px;
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  background: #0d6efd;
+  color: #fff;
+  display: none;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 9998;
+  transition: 0.3s;
+}
+
+#topBtn:hover {
+  background: #0b5ed7;
+  transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .counter {
+    font-size: 35px;
+  }
+
+  #about h2,
+  #services h2,
+  #contact h2 {
+    font-size: 30px;
+  }
+
+  .service-card,
+  .review-card {
+    padding: 20px;
+  }
+
+  .whatsapp-float,
+  #topBtn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  #topBtn {
+    left: 15px;
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .counter {
+    font-size: 28px;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    padding: 10px 0;
+  }
+
+  .btn-lg {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
