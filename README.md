@@ -1,752 +1,80 @@
-# rohtak-landing
-Premium Landing Page for Rohtak Hospital with responsive design, lead generation form, WhatsApp integration, and modern UI.
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+# Rohtak Hospital — Landing Page
 
-<title>Rohtak Hospital | Advanced Healthcare</title>
+Premium responsive landing page for Rohtak Hospital that includes a lead generation form, WhatsApp contact, doctor profiles, testimonials, and modern UI.
 
-<meta name="description" content="Rohtak Hospital provides trusted healthcare with experienced doctors, modern facilities and emergency care.">
+## Features
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+- Responsive Bootstrap-based layout
+- Appointment/lead capture form
+- WhatsApp quick contact
+- Services, About, Contact, Testimonials, FAQ, Counters
+- Accessible and semantic markup (improvable — see checklist)
 
-</head>
+## Preview
 
-<body>
+Add a screenshot in `docs/screenshot.png` or link to a live demo once deployed.
 
-<!-- TOP BAR -->
+## Quick start (development)
 
-<div class="top-bar">
+1. Clone repository
 
-<div class="container d-flex justify-content-between">
+   git clone https://github.com/RohtakHospital-art/rohtak-landing.git
+2. Switch to the working branch (or the branch for this change)
 
-<div>
+   git checkout add/clean-readme-and-landing
 
-<i class="fa-solid fa-location-dot"></i>
+3. Open locally
 
-Sukhpura Chowk, Rohtak
+   - Option A: Open `index.html` directly in a browser.
+   - Option B (recommended for local assets): run a simple server:
+     - Python 3: `python -m http.server 8000` then open http://localhost:8000
+     - Node: `npx http-server` or similar
 
-</div>
+## Structure
 
-<div>
+- `index.html`           — main landing page (move HTML from README here)
+- `style.css`            — styles for the site
+- `script.js`            — client JS (counters, scroll-to-top, form validation)
+- `images/`              — images used on the page
+- `docs/`                — screenshots, design assets (optional)
 
-<a href="https://wa.me/919205657879">
+## Form handling
 
-<i class="fab fa-whatsapp"></i>
+The appointment form in `index.html` is static by default. Choose one of:
 
-9205657879
+- Use a server endpoint (your backend) to receive POSTs.
+- Use a form service (Formspree, Netlify Forms) for static sites.
+- Use a simple Google Forms or Airtable form and link from the site.
 
-</a>
+Example: to use Formspree, set the form `action` attribute to your Formspree endpoint (e.g. `https://formspree.io/f/your-id`) and method `POST`.
 
-</div>
+## Improvements & checklist
 
-</div>
+- Move all HTML/CSS/JS out of README into proper files. (Done in this branch.)
+- Add meta Open Graph tags for social sharing.
+- Use optimized images (WebP, responsive `srcset`).
+- Add `integrity` & `crossorigin` attributes for CDN assets if you want SRI.
+- Add `aria-` attributes and ensure heading order for better accessibility.
+- Add server-side or third-party form validation and anti-spam (reCAPTCHA or honeypot).
+- Avoid using `target="_blank"` without `rel="noopener noreferrer"`.
+- Add tests or visual regression checks if needed.
+- Provide a `LICENSE` file (MIT is included in this branch).
 
-</div>
+## Deployment
 
-<!-- NAVBAR -->
+- GitHub Pages: set the repository to serve from the `main` branch (root) or `gh-pages` branch.
+- Or deploy to Netlify/Vercel by connecting your repo.
 
-<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+## Contributing
 
-<div class="container">
+- Open an issue for features or bugs.
+- Fork → create a feature branch → PR with description and screenshots.
+- Keep commit messages descriptive.
 
-<a class="navbar-brand fw-bold text-primary">
+## License
 
-Rohtak Hospital
+This project is provided under the MIT License. See `LICENSE`.
 
-</a>
+## Contact
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-
-<span class="navbar-toggler-icon"></span>
-
-</button>
-
-<div class="collapse navbar-collapse" id="menu">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-
-<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-
-</ul>
-
-<a href="#appointment" class="btn btn-primary ms-3">
-
-Book Appointment
-
-</a>
-
-</div>
-
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<section id="home" class="hero">
-
-<div class="overlay"></div>
-
-<div class="container">
-
-<div class="row align-items-center">
-
-<div class="col-lg-6">
-
-<h1>
-
-Advanced Healthcare<br>
-
-You Can Trust
-
-</h1>
-
-<p>
-
-Expert Doctors • Modern Facilities • 24×7 Emergency Care
-
-</p>
-
-<div class="mt-4">
-
-<a href="#appointment" class="btn btn-primary btn-lg">
-
-Book Appointment
-
-</a>
-
-<a href="https://wa.me/919205657879"
-
-class="btn btn-success btn-lg ms-2">
-
-WhatsApp
-
-</a>
-
-</div>
-
-</div>
-
-<div class="col-lg-6 text-center">
-
-<img src="images/hospital.png"
-
-class="img-fluid rounded shadow-lg"
-
-alt="Rohtak Hospital">
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about" class="py-5">
-
-<div class="container">
-
-<div class="row align-items-center">
-
-<div class="col-lg-6">
-
-<img src="images/about.jpg"
-
-class="img-fluid rounded">
-
-</div>
-
-<div class="col-lg-6">
-
-<h2>
-
-Welcome to Rohtak Hospital
-
-</h2>
-
-<p>
-
-Rohtak Hospital is committed to providing quality healthcare with experienced doctors, advanced medical technology and compassionate patient care.
-
-</p>
-
-<ul>
-
-<li>Experienced Doctors</li>
-
-<li>24×7 Emergency</li>
-
-<li>Modern Operation Theatre</li>
-
-<li>Affordable Treatment</li>
-
-<li>Patient First Approach</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- SERVICES -->
-
-<section id="services" class="py-5 bg-light">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2>Our Medical Services</h2>
-
-<p>Complete Healthcare Under One Roof</p>
-
-</div>
-
-<div class="row g-4">
-
-<div class="col-md-4">
-<div class="service-card">
-<i class="fas fa-user-md"></i>
-<h4>General Medicine</h4>
-<p>Expert physicians providing quality healthcare.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="service-card">
-<i class="fas fa-heartbeat"></i>
-<h4>Emergency Care</h4>
-<p>24×7 emergency medical support.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="service-card">
-<i class="fas fa-procedures"></i>
-<h4>General Surgery</h4>
-<p>Modern operation theatre & surgical care.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="service-card">
-<i class="fas fa-baby"></i>
-<h4>Pediatrics</h4>
-<p>Complete child healthcare services.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="service-card">
-<i class="fas fa-female"></i>
-<h4>Gynecology</h4>
-<p>Women's healthcare by experienced specialists.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="service-card">
-<i class="fas fa-x-ray"></i>
-<h4>Diagnostics</h4>
-<p>Modern laboratory & diagnostic services.</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- WHY CHOOSE US -->
-
-<section class="py-5">
-
-<div class="container">
-
-<div class="row">
-
-<div class="col-lg-6">
-
-<h2>Why Choose Rohtak Hospital?</h2>
-
-<ul class="list-group list-group-flush">
-
-<li class="list-group-item">✔ Experienced Doctors</li>
-
-<li class="list-group-item">✔ Advanced Medical Equipment</li>
-
-<li class="list-group-item">✔ Affordable Treatment</li>
-
-<li class="list-group-item">✔ 24×7 Emergency Care</li>
-
-<li class="list-group-item">✔ Patient-Centered Care</li>
-
-</ul>
-
-</div>
-
-<div class="col-lg-6">
-
-<img src="images/why.jpg" class="img-fluid rounded shadow">
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- APPOINTMENT -->
-
-<section id="appointment" class="py-5 bg-primary text-white">
-
-<div class="container">
-
-<div class="text-center mb-4">
-
-<h2>Book Your Appointment</h2>
-
-<p>Fill the form and our team will contact you shortly.</p>
-
-</div>
-
-<form class="row g-3">
-
-<div class="col-md-6">
-
-<input type="text" class="form-control" placeholder="Your Name">
-
-</div>
-
-<div class="col-md-6">
-
-<input type="tel" class="form-control" placeholder="Mobile Number">
-
-</div>
-
-<div class="col-md-6">
-
-<select class="form-select">
-
-<option>Select Department</option>
-
-<option>General Medicine</option>
-
-<option>General Surgery</option>
-
-<option>Gynecology</option>
-
-<option>Pediatrics</option>
-
-<option>Emergency</option>
-
-</select>
-
-</div>
-
-<div class="col-md-6">
-
-<input type="date" class="form-control">
-
-</div>
-
-<div class="col-12">
-
-<textarea class="form-control" rows="4" placeholder="Message"></textarea>
-
-</div>
-
-<div class="col-12 text-center">
-
-<button class="btn btn-warning btn-lg">
-
-Book Appointment
-
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact" class="py-5">
-
-<div class="container">
-
-<div class="row">
-
-<div class="col-lg-6">
-
-<h2>Contact Us</h2>
-
-<p><strong>Address:</strong> Sukhpura Chowk, Rohtak</p>
-
-<p><strong>WhatsApp:</strong> 9205657879</p>
-
-</div>
-
-<div class="col-lg-6">
-
-<a href="https://wa.me/919205657879" class="btn btn-success btn-lg">
-
-Chat on WhatsApp
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer class="bg-dark text-white text-center py-4">
-
-<div class="container">
-
-<h4>Rohtak Hospital</h4>
-
-<p>Sukhpura Chowk, Rohtak</p>
-
-<p>© 2026 Rohtak Hospital. All Rights Reserved.</p>
-
-</div>
-
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
-<!-- COUNTER SECTION -->
-
-<section class="counter-section py-5">
-
-<div class="container">
-
-<div class="row text-center">
-
-<div class="col-md-3">
-<h2 class="counter">15000+</h2>
-<p>Happy Patients</p>
-</div>
-
-<div class="col-md-3">
-<h2 class="counter">25+</h2>
-<p>Expert Doctors</p>
-</div>
-
-<div class="col-md-3">
-<h2 class="counter">15+</h2>
-<p>Years Experience</p>
-</div>
-
-<div class="col-md-3">
-<h2 class="counter">24×7</h2>
-<p>Emergency Care</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PATIENT REVIEWS -->
-
-<section class="py-5 bg-light">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2>Patient Reviews</h2>
-
-<p>Trusted by Thousands of Patients</p>
-
-</div>
-
-<div class="row">
-
-<div class="col-md-4">
-
-<div class="review-card">
-
-★★★★★
-
-<p>
-
-Very good doctors and excellent staff.
-
-Highly recommended.
-
-</p>
-
-<h5>- Rahul Sharma</h5>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="review-card">
-
-★★★★★
-
-<p>
-
-Affordable treatment and very clean hospital.
-
-</p>
-
-<h5>- Pooja Verma</h5>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="review-card">
-
-★★★★★
-
-<p>
-
-Emergency services are excellent.
-
-</p>
-
-<h5>- Amit Kumar</h5>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FAQ -->
-
-<section class="py-5">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2>Frequently Asked Questions</h2>
-
-</div>
-
-<div class="accordion" id="faq">
-
-<div class="accordion-item">
-
-<h2 class="accordion-header">
-
-<button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">
-
-What are the OPD timings?
-
-</button>
-
-</h2>
-
-<div id="q1" class="accordion-collapse collapse show">
-
-<div class="accordion-body">
-
-Please contact the hospital for current OPD timings.
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="accordion-item">
-
-<h2 class="accordion-header">
-
-<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">
-
-Do you provide emergency services?
-
-</button>
-
-</h2>
-
-<div id="q2" class="accordion-collapse collapse">
-
-<div class="accordion-body">
-
-Yes, emergency services are available 24×7.
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="accordion-item">
-
-<h2 class="accordion-header">
-
-<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">
-
-How can I book an appointment?
-
-</button>
-
-</h2>
-
-<div id="q3" class="accordion-collapse collapse">
-
-<div class="accordion-body">
-
-Book online or contact us on WhatsApp.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- FLOATING WHATSAPP -->
-
-<a href="https://wa.me/919205657879"
-
-class="whatsapp-float"
-
-target="_blank">
-
-<i class="fab fa-whatsapp"></i>
-
-</a>
-
-
-
-<!-- BACK TO TOP -->
-
-<button id="topBtn">
-
-<i class="fas fa-arrow-up"></i>
-
-</button>
-.service-card{
-background:#fff;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.4s;
-text-align:center;
-}
-
-.service-card:hover{
-transform:translateY(-10px);
-}
-
-.service-card i{
-font-size:45px;
-color:#0d6efd;
-margin-bottom:20px;
-}
-
-.review-card{
-background:#fff;
-padding:25px;
-border-radius:20px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-text-align:center;
-}
-
-.counter-section{
-background:#0d6efd;
-color:#fff;
-}
-
-.counter{
-font-size:50px;
-font-weight:bold;
-}
-
-.whatsapp-float{
-position:fixed;
-bottom:25px;
-right:25px;
-width:65px;
-height:65px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:32px;
-color:#fff;
-text-decoration:none;
-box-shadow:0 8px 20px rgba(0,0,0,.3);
-z-index:9999;
-}
-
-#topBtn{
-position:fixed;
-left:25px;
-bottom:25px;
-width:55px;
-height:55px;
-border:none;
-border-radius:50%;
-background:#0d6efd;
-color:#fff;
-display:none;
-cursor:pointer;
-}
-Add a "Services Section" to the HTML with medical services offered?
-Create a complete contact/appointment section?
-Add more HTML sections for doctor profiles or testimonials?
+For questions, reach out via the repo's issues or contact via WhatsApp: https://wa.me/919205657879
